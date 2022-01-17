@@ -79,7 +79,7 @@
         </div>
     </nav>
 
-    <main>
+    <main class="py-5">
         @yield('content')
     </main>
     <footer class="bg-dark text-center text-white">   
