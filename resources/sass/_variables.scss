@@ -1,0 +1,26 @@
+$theme-colors: (
+  "purple":     #6f42c1,
+  "dark": #000,
+  "white": #fff
+);
+
+@font-face {
+  font-family: Circular;
+  src: url(../fonts/Circular/circular.ttf)
+}
+
+$font-family-base: Circular;
+
+
+$btn-padding-y-lg: 15px;       
+$btn-padding-x-lg: 45px;    
+$btn-font-size-lg: 14px;
+
+
+$offcanvas-bg-color: #000;
+$offcanvas-color: #fff;
+
+$form-check-input-checked-bg-color:#6f42c1;
+
+$input-focus-border-color:  #9e77e3;            
+$input-focus-box-shadow: 0 0 0 0.25rem rgb(111, 66, 193, 30%);
