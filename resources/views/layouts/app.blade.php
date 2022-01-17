@@ -11,32 +11,24 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
+    <nav class="navbar navbar-dark  bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="#"><img src={{asset('images/white-logo-small.png')}} alt=""></a>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <a href="#"><img style="height: 45px" src={{asset('images/white-logo-small.png')}} alt=""></a>
+                    <button type="button" class="btn-close btn-white bg-white" data-bs-dismiss="offcanvas" aria-label="Close">
+                        
+                    </button>
+                </div>
+                <div class="offcanvas-body">
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -69,15 +61,176 @@
                                     </form>
                                 </div>
                             </li>
+                            <li class="nav-item">
+                                <form>
+                                    <label for="search">Buscar Música</label>
+                                    <br>
+                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search">
+                                    <button class="mt-2 btn btn-outline-purple" type="submit">Buscar</button>
+                                </form>
+                            </li>
+                            
                         @endguest
                     </ul>
+                    
+                    
                 </div>
             </div>
-        </nav>
+        </div>
+    </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
+    <main>
+        @yield('content')
+    </main>
+    <footer class="bg-dark text-center text-white">   
+        <div class="container p-4">
+            <section class="mb-4">
+                <a class="btn btn-outline-white m-1" href="#!" type="button">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a class="btn btn-outline-white m-1" href="#!" type="button">
+                    <i class="bi bi-twitter"></i>
+                </a>
+                <a class="btn btn-outline-white m-1" href="#!" type="button">
+                    <i class="bi bi-google"></i>
+                </a>
+                <a class="btn btn-outline-white m-1" href="#!" type="button">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a class="btn btn-outline-white m-1" href="#!" type="button">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a class="btn btn-outline-white m-1" href="#!" type="button">
+                    <i class="bi bi-github"></i>
+                </a>
+            </section>
+
+            <section class="">
+                <form action="#">
+
+                <div class="row d-flex justify-content-center">
+
+                    <div class="col-auto">
+                    <p class="pt-2">
+                        <strong>Sign up for our newsletter</strong>
+                    </p>
+                    </div>
+    
+
+                    <div class="col-md-5 col-12">
+
+                    <div class="form-outline form-white mb-4">
+                        <input type="email" id="form5Example21" class="form-control" />
+                        <label class="form-label" for="form5Example21">Email address</label>
+                    </div>
+                    </div>
+
+                    <div class="col-auto">
+
+                    <button type="submit" class="btn btn-outline-purple mb-4">
+                        Subscribe
+                    </button>
+                    </div>
+
+                </div>
+                </form>
+            </section>
+
+            <section class="mb-4">
+                <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
+                repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
+                eum harum corrupti dicta, aliquam sequi voluptate quas.
+                </p>
+            </section>
+
+            <section class="">
+
+                <div class="row">
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Links</h5>
+        
+                    <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Links</h5>
+        
+                    <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Links</h5>
+        
+                    <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Links</h5>
+        
+                    <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                    </ul>
+                </div>
+                </div>
+            </section>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © {{date('Y')}} Copyright:
+        <a class="text-white" href="#">Gustavo Henrique</a>
+        </div>
+    </footer>
+    <script src={{ asset('site/bootstrap.js') }}></script>
 </body>
 </html>
