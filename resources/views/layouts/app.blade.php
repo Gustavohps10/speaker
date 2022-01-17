@@ -231,6 +231,5 @@
         <a class="text-white" href="#">Gustavo Henrique</a>
         </div>
     </footer>
-    <script src={{ asset('site/bootstrap.js') }}></script>
 </body>
 </html>
