@@ -5,9 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Sound;
+use App\Models\Genre;
 
 class SoundController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,7 @@ class SoundController extends Controller
      */
     public function index()
     {
-        //
+        echo "LIST SOUNDS HERE";
     }
 
     /**
@@ -25,7 +32,10 @@ class SoundController extends Controller
      */
     public function create()
     {   
-        return view('sound.formCreate');
+        $genres = Genre::all();
+        return view('sound.formCreate', [
+            "genres" => $genres
+        ]);
     }
 
     /**
@@ -36,7 +46,26 @@ class SoundController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $genre = Genre::find($request->genre);
+        $user = Auth::user();
+        $audio = $request->file('audio');
+        $image = $request->file('image');
+
+        $sound = new Sound();
+        $sound->name = $request->name;
+        $sound->description = $request->description;
+        $sound->lyrics = $request->lyrics;
+        $sound->audio = $audio->hashName();
+        $sound->image = $image->hashName();
+        //Relationships
+        $sound->genre()->associate($genre);
+        $sound->user()->associate($user);
+
+        $sound->save();
+        $audio->store('sounds/audios');
+        $image->store('sounds/images');
+        
+        return redirect()->route('sound.index');
     }
 
     /**
