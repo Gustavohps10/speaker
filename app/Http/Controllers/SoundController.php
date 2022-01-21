@@ -46,6 +46,13 @@ class SoundController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'genre' => 'required|exists:App\Models\Genre,id',
+            'image' => 'file|filled|image',
+            'audio' => 'required|file|filled|mimes:mp3'
+        ]);
+        
         $genre = Genre::find($request->genre);
         $user = Auth::user();
         $audio = $request->file('audio');
