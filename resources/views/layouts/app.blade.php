@@ -44,6 +44,14 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <form>
+                                    <label for="search">Buscar Música</label>
+                                    <br>
+                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search">
+                                    <button class="mt-2 btn btn-outline-purple" type="submit">Buscar</button>
+                                </form>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -61,14 +69,15 @@
                                     </form>
                                 </div>
                             </li>
+
                             <li class="nav-item">
-                                <form>
-                                    <label for="search">Buscar Música</label>
-                                    <br>
-                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search">
-                                    <button class="mt-2 btn btn-outline-purple" type="submit">Buscar</button>
-                                </form>
+                                <a class="nav-link" href="{{ route('sound.index') }}">Minhas Músicas</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('sound.create') }}">Upload</a>
+                            </li>
+
+                            
                             
                         @endguest
                     </ul>
