@@ -19,8 +19,8 @@ class CreateSoundsTable extends Migration
             $table->foreignId('genre_id')->constrained('genres');
 
             $table->string('name');
-            $table->text('description');
-            $table->text('lyrics');
+            $table->text('description')->nullable();
+            $table->text('lyrics')->nullable();
             $table->string('audio');
             $table->string('image');
             $table->timestamps();

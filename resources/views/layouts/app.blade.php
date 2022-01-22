@@ -231,5 +231,6 @@
         <a class="text-white" href="#">Gustavo Henrique</a>
         </div>
     </footer>
+    @yield('scripts')
 </body>
 </html>

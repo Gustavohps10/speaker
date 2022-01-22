@@ -24,4 +24,5 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/sound/new', [SoundController::class, 'create'])->name('sound.create');
+Route::get('/sound/youtubeVideoData', [SoundController::class, 'getYoutubeVideoData'])->name('sound.getYoutubeVideoData');
 Route::resource('sound', SoundController::class)->except(['create']);
