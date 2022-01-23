@@ -69,3 +69,19 @@
     </div>
 
 @endsection
+
+@section('scripts')
+    <script>
+        let inputImage = document.getElementById('image');
+        let previewImage = document.getElementById('previewImage');
+        inputImage.addEventListener('change', (e) => {
+            let file = e.target.files[0];
+            let reader =  new FileReader();
+            reader.onloadend = () => {
+                previewImage.src = reader.result;
+            }
+
+            reader.readAsDataURL(file)
+        });
+    </script>
+@endsection
