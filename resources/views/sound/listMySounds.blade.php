@@ -22,6 +22,7 @@
                            height: 170px">
                     <div class="card-body">
                         <p class="card-title text-truncate ">{{$sound->name}}</p>
+                        <a class="float-end text-dark" href={{ route('sound.edit', ["sound" => $sound->id])}}>Editar</a>
                     </div>
                 </div>
             @endforeach

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
@@ -104,9 +105,17 @@ class SoundController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Sound $sound)
     {
-        //
+        if($sound->user->id != Auth::id()){
+            return redirect()->route("sound.index");
+        }
+
+        $genres = Genre::all();
+        return view('sound.formEdit', [
+            "sound" => $sound,
+            "genres" => $genres
+        ]);
     }
 
     /**
@@ -116,9 +125,32 @@ class SoundController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Sound $sound)
     {
-        //
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'genre' => 'required|exists:App\Models\Genre,id',
+            'image' => 'file|filled|image',
+        ]);
+
+        if($sound->user->id != Auth::id()){
+            return redirect()->route("sound.index");
+        }
+
+        if($request->file('image')){
+            $image = $request->file('image');
+            Storage::disk('public')->delete("sounds/images/$sound->image");
+            $image->store('sounds/images');
+            $sound->image = $image->hashName();
+        }
+
+        $sound->name = $request->name;
+        $sound->lyrics = $request->lyrics;
+        $sound->description = $request->description;
+        //Relationships
+        $sound->genre()->associate(Genre::find($request->genre));
+        $sound->save();
+        return redirect()->route("sound.index");
     }
 
     /**
