@@ -3,4 +3,8 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-@import 'bootstrap-icons'
+@import 'bootstrap-icons';
+
+.dropstart .dropdown-toggle::before{
+    display: none;
+}
