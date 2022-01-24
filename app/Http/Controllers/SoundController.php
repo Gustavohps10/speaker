@@ -161,9 +161,17 @@ class SoundController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Sound $sound)
     {
-        //
+        if($sound->user->id != Auth::id()){
+            return redirect()->route("sound.index");
+        }
+
+        $sound->delete();
+        Storage::disk('public')->delete("sounds/images/$sound->image");
+        Storage::disk('public')->delete("sounds/audios/$sound->audio");
+
+        return redirect()->route("sound.index");
     }
 
     public function getYoutubeVideoData()
