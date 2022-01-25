@@ -22,6 +22,13 @@ $audio = asset("storage/sounds/audios/$sound->audio")
                 <div class="col-md-8 col-sm-12 text-white mt-3">
                     <h1>{{$sound->name}}</h1>
                     <h4 style="color: #747474;">{{$sound->genre->name}}</h4>
+                    <audio controls id="sound">
+                        <source src="{{$audio}}" type="audio/mpeg">
+                       </audio>
+                    <div id="waveform"></div>
+                    <div id="controls" class="mt-3">
+                        <button class="btn btn-purple" id="play"><i class="bi bi-play-circle"></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,3 +59,26 @@ $audio = asset("storage/sounds/audios/$sound->audio")
     </section>
 @endsection
 
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/2.0.4/wavesurfer.min.js"></script>
+<script>
+    var wavesurfer = WaveSurfer.create({
+        container: document.querySelector('#waveform'),
+        backend: 'MediaElement',
+        waveColor: '#fff',
+        progressColor: '#6f42c1',
+        barWidth: 4,
+        responsive: true,
+        hideScrollbar: true
+    });
+
+    var mediaElt = document.querySelector('#sound');
+    
+    wavesurfer.load(mediaElt, [0.218, 1.218]);
+
+    document.querySelector('#play').addEventListener('click', ()=>{
+        wavesurfer.play();
+    })
+</script>
+    
+@endsection
