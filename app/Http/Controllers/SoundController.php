@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Sound;
 use App\Models\Genre;
 
+use BoyHagemann\Wave\Wave;
+use maximal\audio\Waveform;
+
 class SoundController extends Controller
 {
 
@@ -83,8 +86,14 @@ class SoundController extends Controller
         //Relationships
         $sound->genre()->associate($genre);
         $sound->user()->associate($user);
-        $sound->save();
         
+        //Waveform
+        $file = Storage::disk('public')->path("sounds/audios/$sound->audio");
+        $waveformData = $this->generateWaveformData($file);
+        $jsonWaveformData = json_encode($waveformData['lines1']);
+        
+        $sound->wave_peaks = $jsonWaveformData;
+        $sound->save();
         return redirect()->route('sound.index');
     }
 
@@ -95,9 +104,12 @@ class SoundController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Sound $sound)
-    {
+    {   
+        $wavePeaks = $sound->wave_peaks;
+       
         return view('sound.details', [
             "sound" => $sound,
+            "wavePeaks" => $wavePeaks
         ]);
     }
 
@@ -185,5 +197,12 @@ class SoundController extends Controller
             "q" => $search
         ]);
         echo $response;
+    }
+
+    private function generateWaveformData(string $file){
+        $waveform = new Waveform($file);
+        $width = 100;
+        $data = $waveform->getWaveformData($width, true);
+        return $data;
     }
 }

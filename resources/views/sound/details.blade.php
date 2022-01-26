@@ -42,7 +42,7 @@ $audio = asset("storage/sounds/audios/$sound->audio")
                     @if ($sound->lyrics)
                         <p style="color: #464646;">{!! nl2br($sound->lyrics) !!}</p>
                     @else
-                    <p style="color: #464646;">Você ainda não definiu a letra</p>
+                    <p style="color: #464646;">A letra não foi definida</p>
                     @endif
                 </div>
                 <div class="col-sm-12 col-md-7">
@@ -50,7 +50,7 @@ $audio = asset("storage/sounds/audios/$sound->audio")
                     @if ($sound->description)
                         <p style="color: #464646;">{!!  nl2br($sound->description) !!}</p>
                     @else
-                        <p style="color: #464646;">Você ainda não inseriu uma descrição</p>
+                        <p style="color: #464646;">Nenhuma descrição inserida</p>
                     @endif
                     
                 </div>
@@ -74,7 +74,9 @@ $audio = asset("storage/sounds/audios/$sound->audio")
 
     var mediaElt = document.querySelector('#sound');
     
-    wavesurfer.load(mediaElt, [0.218, 1.218]);
+    let wavePeaks = Object.values({!! $wavePeaks !!});
+    console.log(wavePeaks);
+    wavesurfer.load(mediaElt, wavePeaks);
 
     document.querySelector('#play').addEventListener('click', ()=>{
         wavesurfer.play();

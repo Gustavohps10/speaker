@@ -8,7 +8,7 @@
               Featured
             </div>
             <div class="card-body md-3">
-                <form class="row" action={{route('sound.store')}} method="POST" enctype="multipart/form-data">
+                <form id="formRegister" class="row" action={{route('sound.store')}} method="POST" enctype="multipart/form-data">
                 @csrf
                     <div class="mb-3">
                         <label for="audio" class="form-label">Audio</label>
@@ -74,7 +74,10 @@
                         <br>
 
                         <button type="button" class="btn btn-outline-dark btn-lg rounded-pill">Cancelar</button>
-                        <button type="submit" class="btn btn-purple btn-lg rounded-pill float-end">Salvar</button>
+                        <button id="btnRegister" type="submit" class="btn btn-purple btn-lg rounded-pill float-end position-relative" style="min-width: 132px; min-height: 53px;">
+                            <img class="position-absolute top-50 start-50 translate-middle" src={{asset('images/circle-loading.svg')}} id="loadingButton" style="height: 30px; display: none">
+                            <span>Salvar</span>
+                        </button>
                     </div>
                 </form>
                 
@@ -154,6 +157,12 @@
         }
 
         reader.readAsDataURL(file)
+    });
+
+
+    $("#formRegister").on('submit', function(){
+        $("#btnRegister > span").hide();
+        $("#btnRegister > img").show();
     });
 </script>
 @endsection

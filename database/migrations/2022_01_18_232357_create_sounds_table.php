@@ -23,6 +23,7 @@ class CreateSoundsTable extends Migration
             $table->text('lyrics')->nullable();
             $table->string('audio');
             $table->string('image');
+            $table->json('wave_peaks');
             $table->timestamps();
         });
     }
