@@ -20,7 +20,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a href="#"><img src={{asset('images/white-logo-small.png')}} alt=""></a>
+            <a href="#"><img src={{asset('images/white-logo-small.png')}} alt="" style="height: 50px"></a>
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
                     <a href="#"><img style="height: 45px" src={{asset('images/white-logo-small.png')}} alt=""></a>
