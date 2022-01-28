@@ -45,10 +45,10 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <form>
+                                <form method="get" action="{{route('home.search')}}">
                                     <label for="search">Buscar Música</label>
                                     <br>
-                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search">
+                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search" name="str" value=@if(!empty($str)) {{$str}} @endif>
                                     <button class="mt-2 btn btn-outline-purple" type="submit">Buscar</button>
                                 </form>
                             </li>
