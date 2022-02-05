@@ -1,66 +1,74 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center">
+    <img src="public/images/original-logo.png" />
+    <br>
+    Sound Platform: <i>Speaker</i>
+</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+![GitHub top language](https://img.shields.io/github/languages/top/gustavohps10/speaker)
+![GitHub language count](https://img.shields.io/github/languages/count/gustavohps10/speaker?color=%236f42c1)
+
+> Status: **Developing** ⚠️
+
+<div align="center">
+    
+![speake](https://user-images.githubusercontent.com/61752235/151577671-663b2e7b-c4b7-4033-af49-0c15d279efca.gif)
+    
+</div>
+
+# :page_with_curl: Introduction
+<p>
+Speaker is an online audio publishing platform built with the Laravel framework. <br>
+There you can search, upload and listen to your favorite tracks.
 </p>
 
-## About Laravel
+# :game_die: Features
+- [x] Login
+- [x] User registration
+- [x] Upload audios
+- [x] Delete audios
+- [x] Edit audios
+- [x] Search audios
+- [ ] Create playlists
+- [ ] Make comments
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# :pushpin: Dependencies
+- PHP
+- [Composer](https://getcomposer.org/Composer-Setup.exe)
+- [SoX - Sound eXchange](https://sourceforge.net/projects/sox/files/latest/download)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# :gear: How to run the application
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## You can use our test site
+> ❌ Not yet implemented
 
-## Learning Laravel
+## In your localhost
+1. In your terminal, enter the project folder and run the following commands in sequence:
+``` 
+composer install
+copy .env.example .env
+php artisan key:generate
+```
+2. Open the .env file and configure:
+- DATABASE
+- MAIL
+- set ```FILESYSTEM_DRIVER=public```
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+3. Open the terminal again and run:
+``` 
+php artisan migrate
+php artisan storage:link
+php artisan serve
+```
+> Open in your browser http://localhost:8000
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# :hammer_and_wrench: Technologies
+Tools used in the project:
+- PHP / LARAVEL 8
+- MySQL
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap 5
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# :adult: Author
+Made with 💜 Gustavo Henrique
