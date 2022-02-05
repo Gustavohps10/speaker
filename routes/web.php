@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SoundController;
+use App\Http\Controllers\PlaylistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,5 @@ Route::get('/search', [HomeController::class, 'search'])->name('home.search');
 Route::get('/sound/new', [SoundController::class, 'create'])->name('sound.create');
 Route::get('/sound/youtubeVideoData', [SoundController::class, 'getYoutubeVideoData'])->name('sound.getYoutubeVideoData');
 Route::resource('sound', SoundController::class)->except(['create']);
+
+Route::get('/playlist/new', [SoundController::class, 'create'])->name('sound.create');

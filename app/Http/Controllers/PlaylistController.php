@@ -6,26 +6,37 @@ use Illuminate\Http\Request;
 
 class PlaylistController extends Controller
 {
+    public function index(){
+        //List my playlists
+    }
+
     public function create()
     {
+        //Return view with form
         //Create a new playlist
+    }
+
+    public function add()
+    {
     }
 
     public function edit()
     {
-        # code...
+        //Return view with form
+        //Edit a new playlist
+    }
+
+    public function update()
+    {
     }
 
     public function destroy()
     {
-        # code...
     }
 
     public function addSound(){
-        //Add Sound in playlist
     }
 
     public function removeSound(){
-        //Remove Sound in playlist
     }
 }
