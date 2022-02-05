@@ -5,6 +5,51 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'bootstrap-icons';
 
+body{
+    background-color: #1e1e1e;
+    padding-left: $offcanvas-horizontal-width;
+    color: #fff;
+}
+
 .dropstart .dropdown-toggle::before{
     display: none;
+}
+
+.offcanvas{
+    transform: none;
+    visibility: visible
+}
+
+.offcanvas-header button, .navbar-toggler{
+    display: none;
+}
+
+.container-fluid{
+    flex-direction: row-reverse;
+}
+
+.sound-card{
+    background-color: #181818;
+}
+
+hr{
+    color: #000;
+}
+
+@media (max-width: 993px) {
+    body{
+        padding: 0;
+    }
+
+    .offcanvas-start{
+        transform: translateX(-100%);
+    }
+    
+    .offcanvas-header button, .navbar-toggler{
+        display: block;
+    }
+
+    .container-fluid{
+        flex-direction: row;
+    }
 }

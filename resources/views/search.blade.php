@@ -17,7 +17,7 @@
                         : asset("storage/sounds/images/$sound->image");
                         @endphp
 
-                        <div class="card p-0">
+                        <div class="sound-card card p-0">
                             <a href={{route('sound.show', ['sound' => $sound->id])}}><img src={{$image}} class="card-img-top" alt="..." 
                             style="object-fit: cover;
                                 height: 170px"></a>
@@ -51,7 +51,7 @@
                             : asset("storage/sounds/images/$sound->image");
                             @endphp
 
-                            <div class="card p-0">
+                            <div class="sound-card card p-0">
                                 <a href={{route('sound.show', ['sound' => $sound->id])}}><img src={{$image}} class="card-img-top" alt="..." 
                                 style="object-fit: cover;
                                     height: 170px"></a>

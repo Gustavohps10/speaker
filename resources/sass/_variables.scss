@@ -5,6 +5,7 @@ $theme-colors: (
   "success":    #2b971c,
   "warning":    #ffc107,
   "danger":     #dc3545,
+  "gray": #4e4e4e
 );
 
 @font-face {
@@ -22,6 +23,7 @@ $btn-font-size-lg: 14px;
 
 $offcanvas-bg-color: #000;
 $offcanvas-color: #fff;
+$offcanvas-horizontal-width: 300px;
 
 $form-check-input-focus-box-shadow: 0 0 0 0.25rem rgb(111, 66, 193, 30%);
 $form-check-input-checked-bg-color:#6f42c1;

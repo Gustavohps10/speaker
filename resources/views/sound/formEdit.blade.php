@@ -8,8 +8,8 @@
 
 @section('content')
     <div class="container">
-        <div class="card">
-            <div class="card-body md-3">
+        <div class="sound-card card">
+            <div class=" card-body md-3">
                 <form class="row" action={{route('sound.update', ["sound" => $sound->id])}} method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -49,17 +49,17 @@
 
                         <div class="form-floating">
                             <textarea name="description" class="form-control" id="description" style="height: 100px">{{$sound->description}}</textarea>
-                            <label for="description">Descrição</label>
+                            <label for="description" class="text-dark">Descrição</label>
                         </div>
                         <br>
 
                         <div class="form-floating">
                             <textarea name="lyrics" class="form-control"  id="lyrics" style="height: 100px">{{$sound->lyrics}}</textarea>
-                            <label for="lyrics">Letra</label>
+                            <label for="lyrics" class="text-dark">Letra</label>
                         </div>
                         <br>
 
-                        <a href={{ route('sound.index') }} class="btn btn-outline-dark btn-lg rounded-pill">Cancelar</a>
+                        <a href={{ route('sound.index') }} class="btn btn-outline-white btn-lg rounded-pill">Cancelar</a>
                         <button type="submit" class="btn btn-purple btn-lg rounded-pill float-end">Editar</button>
                     </div>
                 </form>

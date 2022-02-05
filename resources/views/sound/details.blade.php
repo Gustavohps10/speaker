@@ -58,17 +58,17 @@ $audio = asset("storage/sounds/audios/$sound->audio")
                 <div class="col-sm-12 col-md-5">
                     <h2>Letra</h2>
                     @if ($sound->lyrics)
-                        <p style="color: #464646;">{!! nl2br($sound->lyrics) !!}</p>
+                        <p>{!! nl2br($sound->lyrics) !!}</p>
                     @else
-                    <p style="color: #464646;">A letra não foi definida</p>
+                    <p>A letra não foi definida</p>
                     @endif
                 </div>
                 <div class="col-sm-12 col-md-7">
                     <h2>Descrição</h2>
                     @if ($sound->description)
-                        <p style="color: #464646;">{!!  nl2br($sound->description) !!}</p>
+                        <p>{!!  nl2br($sound->description) !!}</p>
                     @else
-                        <p style="color: #464646;">Nenhuma descrição inserida</p>
+                        <p>Nenhuma descrição inserida</p>
                     @endif
                     
                 </div>

@@ -16,7 +16,7 @@
                     : asset("storage/sounds/images/$sound->image");
                 @endphp
 
-                <div class="card p-0">
+                <div class="sound-card card p-0">
                     <a href={{route('sound.show', ['sound' => $sound->id])}}><img src={{$image}} class="card-img-top" alt="..." 
                     style="object-fit: cover;
                            height: 170px"></a>
@@ -25,7 +25,7 @@
                         
                                
                         <div class="btn-group dropstart position-relative float-end">
-                            <button type="button" class="rounded-circle btn btn-outline-dark position-relative" data-bs-toggle="dropdown" aria-expanded="false" style="width: 35px;height: 35px;">
+                            <button type="button" class="rounded-circle btn btn-outline-gray position-relative" data-bs-toggle="dropdown" aria-expanded="false" style="width: 35px;height: 35px;">
                                 <i class="bi bi-three-dots-vertical position-absolute" style="left: 9px;top: 5px;"></i>
                             </button>
                             <ul class="dropdown-menu" style="min-width: 140px;">
@@ -45,15 +45,15 @@
     <!-- MODAL -->
     <div class="modal fade" id="deleteSoundModal" tabindex="-1" aria-labelledby="deleteSoundModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
+          <div class="modal-content sound-card">
+            <div class="modal-header border-dark">
               <h5 class="modal-title" id="deleteSoundModalLabel">Confirmar exclusão</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p>Tem certeza que deseja excluir <b id="soundNameDeleted"></b> permanentemente?</p>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer border-dark">
                 <form id="formDeleteSound" action="#" method="post">
                 @csrf
                 @method("DELETE")

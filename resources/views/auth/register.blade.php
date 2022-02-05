@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card border border-white">
-                <div class="card-header bg-white fs-3 text-center col-md-6 offset-md-4">
+            <div class="sound-card card">
+                <div class="card-header fs-3 text-center col-md-6 offset-md-4">
                     <i class="bi bi-person-badge-fill"></i>
                     {{ __('Register') }}
                 </div>
@@ -67,7 +67,7 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4 d-grid">
                                 
-                                <button type="submit" class="btn btn-outline-dark btn-lg rounded-pill fs-6">
+                                <button type="submit" class="btn btn-outline-purple btn-lg rounded-pill fs-6">
                                     {{ __('Register') }}
                                 </button>
                             </div>

@@ -3,10 +3,7 @@
 
 @section('content')
     <div class="container">
-        <div class="card">
-            <div class="card-header">
-              Featured
-            </div>
+        <div class="sound-card card">
             <div class="card-body md-3">
                 <form id="formRegister" class="row" action={{route('sound.store')}} method="POST" enctype="multipart/form-data">
                 @csrf
@@ -63,17 +60,17 @@
 
                         <div class="form-floating">
                             <textarea name="description" class="form-control" id="description" style="height: 100px"></textarea>
-                            <label for="description">Descrição</label>
+                            <label for="description" class="text-dark">Descrição</label>
                         </div>
                         <br>
 
                         <div class="form-floating">
                             <textarea name="lyrics" class="form-control"  id="lyrics" style="height: 100px"></textarea>
-                            <label for="lyrics">Letra</label>
+                            <label for="lyrics" class="text-dark">Letra</label>
                         </div>
                         <br>
 
-                        <button type="button" class="btn btn-outline-dark btn-lg rounded-pill">Cancelar</button>
+                        <button type="button" class="btn btn-outline-white btn-lg rounded-pill">Cancelar</button>
                         <button id="btnRegister" type="submit" class="btn btn-purple btn-lg rounded-pill float-end position-relative" style="min-width: 132px; min-height: 53px;">
                             <img class="position-absolute top-50 start-50 translate-middle" src={{asset('images/circle-loading.svg')}} id="loadingButton" style="height: 30px; display: none">
                             <span>Salvar</span>
