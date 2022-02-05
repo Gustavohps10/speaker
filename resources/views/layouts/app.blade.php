@@ -34,26 +34,30 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link d-flex align-items-center" href="{{ route('login') }}"><i class="bi bi-door-open fs-4 me-2"></i> {{ __('Login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link d-flex align-items-center" href="{{ route('register') }}"><i class="bi bi-person fs-4 me-2"></i> {{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
+                            <hr class="text-gray">
                             <li class="nav-item">
                                 <form method="get" action="{{route('home.search')}}">
-                                    <label for="search">Buscar Música</label>
+                                    <label for="search"><i class="bi bi-search"></i> Buscar</label> 
                                     <br>
-                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search" name="str" value=@if(!empty($str)) {{$str}} @endif>
+                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" id="search" name="str" value='@if(!empty($str)){{$str}}@endif'>
                                     <button class="mt-2 btn btn-outline-purple" type="submit">Buscar</button>
                                 </form>
                             </li>
+
+                            <hr class="text-gray">
+                            <h1 class="fs-6"><i class="bi bi-person-circle"></i> Conta</h1 class="fs-6">
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link d-flex align-items-center dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -69,16 +73,21 @@
                                     </form>
                                 </div>
                             </li>
+                            <hr class="text-gray">
+                            <h1 class="fs-6"><i class="bi bi-house"></i> Home</h1 class="fs-6">
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('sound.index') }}">Biblioteca</a>
+                                <a class="nav-link d-flex align-items-center" href="{{ route('sound.index') }}"><i class="bi bi-music-note-list fs-4 me-2"></i> Biblioteca</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('sound.create') }}">Upload</a>
+                                <a class="nav-link d-flex align-items-center " href="{{ route('sound.create') }}"><i class="bi bi-cloud-arrow-up fs-4 me-2"></i> Upload</a>
                             </li>
-
-                            
-                            
+                            <li class="nav-item">
+                                <a href="#" class="nav-link d-flex align-items-center "><i class="bi bi-plus-square fs-4 me-2"></i> Playlist</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link d-flex align-items-center "><i class="bi bi-heart fs-4 me-2"></i> Favoritos</a>
+                            </li>
                         @endguest
                     </ul>
                     
