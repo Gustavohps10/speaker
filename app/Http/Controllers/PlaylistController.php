@@ -20,8 +20,6 @@ class PlaylistController extends Controller
 
     public function create()
     {
-        //Return view with form
-        //Create a new playlist
         return view('playlist.newPlaylist');
     }
 
@@ -42,14 +40,32 @@ class PlaylistController extends Controller
         return redirect()->route('sound.index');
     }
 
-    public function edit()
+    public function edit(Playlist $playlist)
     {
-        //Return view with form
-        //Edit a new playlist
+        if($playlist->user->id != Auth::id()){
+            return redirect()->route('sound.index');
+        }
+
+        return view('playlist.editPlaylist',[
+            "playlist" => $playlist
+        ]);
     }
 
-    public function update()
+    public function update(Request $request, Playlist $playlist)
     {
+        if($playlist->user->id != Auth::id()){
+            return redirect()->route('sound.index');
+        }
+        
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        $public = !empty($request->public) ? 1 : 0;
+        $playlist->name = $request->name;
+        $playlist->public = $public;
+        $playlist->save();
+        return redirect()->route('sound.index');
     }
 
     public function destroy()
