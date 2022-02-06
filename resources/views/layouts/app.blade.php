@@ -83,15 +83,13 @@
                                 <a class="nav-link d-flex align-items-center " href="{{ route('sound.create') }}"><i class="bi bi-cloud-arrow-up fs-4 me-2"></i> Upload</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link d-flex align-items-center "><i class="bi bi-plus-square fs-4 me-2"></i> Playlist</a>
+                                <a href="{{ route('playlist.create') }}" class="nav-link d-flex align-items-center "><i class="bi bi-plus-square fs-4 me-2"></i> Playlist</a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link d-flex align-items-center "><i class="bi bi-heart fs-4 me-2"></i> Favoritos</a>
                             </li>
                         @endguest
                     </ul>
-                    
-                    
                 </div>
             </div>
         </div>
