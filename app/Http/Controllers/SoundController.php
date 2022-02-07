@@ -28,9 +28,11 @@ class SoundController extends Controller
     public function index()
     {
         $mySounds = Auth::user()->sounds;
+        $myPlaylists = Auth::user()->playlists;
 
         return view('sound.listMySounds', [
-            "mySounds" => $mySounds
+            "mySounds" => $mySounds,
+            "myPlaylists" => $myPlaylists
         ]);
     }
 

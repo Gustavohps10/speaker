@@ -14,8 +14,12 @@ class CreatePlaylistSoundsTable extends Migration
     public function up()
     {
         Schema::create('playlist_sounds', function (Blueprint $table) {
-            $table->foreignId('playlist_id')->constrained('playlists');
-            $table->foreignId('sound_id')->constrained('sounds');
+            $table->foreignId('playlist_id')
+                ->constrained('playlists')
+                ->onDelete('cascade');
+            $table->foreignId('sound_id')
+                ->constrained('sounds')
+                ->onDelete('cascade');
         });
     }
 

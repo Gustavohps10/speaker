@@ -5,10 +5,7 @@
     <div class="container">
 
         <h2>Minhas Músicas</h2>
-        <div style="display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 210px));
-                    gap: 10px;
-                    justify-content: center">
+        <section class="d-grid gap-2 justify-content-center" style="grid-template-columns: repeat(auto-fit, minmax(200px, 210px));">
             @foreach ($mySounds as $sound)
                 @php
                     $image = substr($sound->image, 0, 8) === "https://" 
@@ -38,7 +35,36 @@
                     </div>
                 </div>
             @endforeach
-        </div>
+        </section>
+
+        <h2>Minhas Playlists</h2>
+        <section class="d-grid gap-2 justify-content-center" style="grid-template-columns: repeat(auto-fit, minmax(200px, 210px));">
+            @foreach ($myPlaylists as $playlist)
+                <div class="card sound-card">
+                    <div href="#" class="text-center position-relative">
+                        <img src={{ asset('images/music-note.svg') }} class="card-img-top" alt="..." 
+                        style="object-fit: cover;
+                            height: 170px">
+                        <a href="#" class="play btn btn-purple position-absolute end-0 bottom-0 me-2 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px;height: 50px;">
+                            <i class="bi bi-play-fill fs-4" style="margin-left: 3px;margin-top: 3px;"></i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <p class="soundName card-title text-truncate">{{$playlist->name}}</p>
+                        <div class="btn-group dropstart position-relative float-end">
+                            <button type="button" class="rounded-circle btn btn-outline-gray position-relative" data-bs-toggle="dropdown" aria-expanded="false" style="width: 35px;height: 35px;">
+                                <i class="bi bi-three-dots-vertical position-absolute" style="left: 9px;top: 5px;"></i>
+                            </button>
+                            <ul class="dropdown-menu" style="min-width: 140px;">
+                                <li><a class="dropdown-item" href={{ route('playlist.edit', ['playlist' => $playlist->id]) }}><i class="bi bi-pencil-square"></i> Editar</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><button data-action={{ route('playlist.destroy', ['playlist' => $playlist->id]) }} id={{$playlist->id}} class="delete dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteSoundModal"><i class="bi bi-trash"></i> Deletar</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+             @endforeach
+        </section>
     </div>
 
 

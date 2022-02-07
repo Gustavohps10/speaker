@@ -56,7 +56,7 @@ class PlaylistController extends Controller
         if($playlist->user->id != Auth::id()){
             return redirect()->route('sound.index');
         }
-        
+
         $request->validate([
             'name' => 'required|max:255',
         ]);
@@ -68,8 +68,14 @@ class PlaylistController extends Controller
         return redirect()->route('sound.index');
     }
 
-    public function destroy()
+    public function destroy(Playlist $playlist)
     {
+        if($playlist->user->id != Auth::id()){
+            return redirect()->route('sound.index');
+        }
+        
+        $playlist->delete();
+        return redirect()->route('sound.index');
     }
 
     public function addSound(){

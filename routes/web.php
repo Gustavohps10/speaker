@@ -30,6 +30,6 @@ Route::get('/playlist/new', [PlaylistController::class, 'create'])->name('playli
 Route::get('/playlist/{playlist}/edit', [PlaylistController::class, 'edit'])->name('playlist.edit');
 Route::post('/playlist/add', [PlaylistController::class, 'add'])->name('playlist.add');
 Route::put('/playlist/update/{playlist}', [PlaylistController::class, 'update'])->name('playlist.update');
-Route::post('/playlist/destroy', [PlaylistController::class, 'destroy'])->name('playlist.destroy');
+Route::delete('/playlist/destroy/{playlist}', [PlaylistController::class, 'destroy'])->name('playlist.destroy');
 Route::post('/playlist/addsound', [PlaylistController::class, 'addSound'])->name('playlist.addsound');
 Route::post('/playlist/removesound', [PlaylistController::class, 'removeSound'])->name('playlist.removesound');
