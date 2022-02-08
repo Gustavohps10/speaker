@@ -31,5 +31,5 @@ Route::get('/playlist/{playlist}/edit', [PlaylistController::class, 'edit'])->na
 Route::post('/playlist/add', [PlaylistController::class, 'add'])->name('playlist.add');
 Route::put('/playlist/update/{playlist}', [PlaylistController::class, 'update'])->name('playlist.update');
 Route::delete('/playlist/destroy/{playlist}', [PlaylistController::class, 'destroy'])->name('playlist.destroy');
-Route::post('/playlist/addsound', [PlaylistController::class, 'addSound'])->name('playlist.addsound');
-Route::post('/playlist/removesound', [PlaylistController::class, 'removeSound'])->name('playlist.removesound');
+Route::post('/playlist/{playlist}/addsounds', [PlaylistController::class, 'addSounds'])->name('playlist.addsounds');
+Route::post('/playlist/{playlist}/removesounds', [PlaylistController::class, 'removeSounds'])->name('playlist.removesounds');

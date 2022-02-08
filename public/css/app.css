@@ -17355,6 +17355,9 @@ body {
 
 .sound-card {
   background-color: #181818;
+}
+
+.img-container {
   overflow: hidden;
 }
 
@@ -17369,6 +17372,10 @@ hr {
 
 .sound-card:hover .play {
   transform: translateX(0%);
+}
+
+.toast-container, .modal {
+  padding-left: 300px;
 }
 
 @media (max-width: 993px) {
@@ -17386,5 +17393,9 @@ hr {
 
   .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
     flex-direction: row;
+  }
+
+  .toast-container, .modal {
+    padding-left: 0;
   }
 }

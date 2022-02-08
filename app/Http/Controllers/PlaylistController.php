@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Playlist;
+use App\Models\Sound;
 
 class PlaylistController extends Controller
 {
@@ -78,9 +79,33 @@ class PlaylistController extends Controller
         return redirect()->route('sound.index');
     }
 
-    public function addSound(){
+    public function addSounds(Request $request, Playlist $playlist){
+        if($playlist->user->id != Auth::id()){
+            return;
+        }
+
+        $data = [];
+        
+        if(!count($request->soundList)){
+            $data["error"] = "Nenhuma musica foi selecionada";
+            return json_encode($data);
+        }
+
+        $soundIdList = array_unique($request->soundList);
+
+        foreach($soundIdList as $soundId){
+            if(!$sound = Sound::find($soundId)){
+                $data["error"] = "Algo deu errado, tente novamente";
+                return json_encode($data);
+            }
+            
+            $playlist->sounds()->save($sound);
+        }
+        
+        $data["success"] = "Adicionado com sucesso";
+        return json_encode($data);
     }
 
-    public function removeSound(){
+    public function removeSounds(){
     }
 }
