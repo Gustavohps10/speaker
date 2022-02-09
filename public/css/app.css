@@ -17371,11 +17371,36 @@ hr {
 }
 
 .sound-card:hover .play {
-  transform: translateX(0%);
+  transform: translateY(0%);
+  opacity: 1;
 }
 
 .toast-container, .modal {
   padding-left: 300px;
+}
+
+.playlist-item.active {
+  background-color: #323232 !important;
+}
+
+.playlist-item {
+  transition: all 0.2s linear;
+  background-color: transparent;
+}
+
+.playlist-item .play {
+  transition: all 0.3s linear;
+  background: transparent;
+  border-color: transparent;
+}
+
+.playlist-item:hover {
+  background-color: #242424;
+}
+
+.playlist-item:hover .play {
+  background-color: #6f42c1;
+  border-color: #6f42c1;
 }
 
 @media (max-width: 993px) {

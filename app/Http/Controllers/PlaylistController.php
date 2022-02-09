@@ -19,6 +19,24 @@ class PlaylistController extends Controller
 
     }
 
+    public function show(Playlist $playlist, Sound $sound)
+    {
+        if(!$playlist->sounds()->where('sound_id', $sound->id)->exists()){
+            return redirect()->route("sound.index");
+        }
+
+        if(!$playlist->public && Auth::id() != $playlist->user->id){
+            return redirect()->route("sound.index");
+        }
+        
+        $wavePeaks = $sound->wave_peaks;
+        return view('playlist.showPlaylist', [
+            "playlist" => $playlist,
+            "sound" => $sound,
+            "wavePeaks" => $wavePeaks
+        ]);
+    }
+
     public function create()
     {
         return view('playlist.newPlaylist');

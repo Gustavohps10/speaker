@@ -25,8 +25,8 @@ Route::get('/sound/new', [SoundController::class, 'create'])->name('sound.create
 Route::get('/sound/youtubeVideoData', [SoundController::class, 'getYoutubeVideoData'])->name('sound.getYoutubeVideoData');
 Route::resource('sound', SoundController::class)->except(['create']);
 
-Route::get('/playlist', [PlaylistController::class, 'index'])->name('playlist.index');
 Route::get('/playlist/new', [PlaylistController::class, 'create'])->name('playlist.create');
+Route::get('/playlist/{playlist}/sound/{sound}', [PlaylistController::class, 'show'])->name('playlist.show');
 Route::get('/playlist/{playlist}/edit', [PlaylistController::class, 'edit'])->name('playlist.edit');
 Route::post('/playlist/add', [PlaylistController::class, 'add'])->name('playlist.add');
 Route::put('/playlist/update/{playlist}', [PlaylistController::class, 'update'])->name('playlist.update');
