@@ -14,10 +14,6 @@ class PlaylistController extends Controller
     {
         $this->middleware('auth');
     }
-    
-    public function index(){
-
-    }
 
     public function show(Playlist $playlist, Sound $sound)
     {
@@ -124,6 +120,30 @@ class PlaylistController extends Controller
         return json_encode($data);
     }
 
-    public function removeSounds(){
+    public function removeSounds(Request $request, Playlist $playlist){
+        if($playlist->user->id != Auth::id()){
+            return;
+        }
+
+        $data = [];
+
+        if(!is_array($request->soundList) || !count($request->soundList)){
+            $data["error"] = "Nenhuma musica foi selecionada";
+            return json_encode($data);
+        }
+
+        $soundIdList = array_unique($request->soundList);
+
+        foreach($soundIdList as $soundId){
+            if(!$sound = Sound::find(intval($soundId))){
+                $data["error"] = "Algo deu errado, tente novamente";
+                return json_encode($data);
+            }
+            
+            $playlist->sounds()->detach($sound->id);
+        }
+        
+        $data["success"] = "Removido com sucesso";
+        return json_encode($data);
     }
 }
