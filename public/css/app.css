@@ -17366,8 +17366,9 @@ hr {
 }
 
 .sound-card .play {
-  transform: translateX(150%);
+  transform: translateY(20%);
   transition: all 0.2s ease;
+  opacity: 0;
 }
 
 .sound-card:hover .play {

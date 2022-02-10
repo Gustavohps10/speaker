@@ -1,31 +1,41 @@
 const bootstrap = window.bootstrap;
 
 var soundList = [];
-var soundCard;
 
-$("li > .delete").on("click", function(){
-    let soundId = $(this).attr('id');
-    let soundName = $(this).parent("li").parent(".dropdown-menu").parent(".btn-group").siblings(".soundName").text();
-    $("#soundNameDeleted").html(soundName);
-
-    soundList.push(soundId);
-    soundCard = $(this).closest(".card");
+$(".addToPlaylist").on("click", function () {
+    let soundCard = $(this).closest(".card");
+    let soundId = soundCard.attr('id');
+    if(soundList.indexOf(soundId) === -1){
+        soundList.push(soundId);
+    }
+    console.log(soundCard);
+    console.log(soundId);
+    console.log(soundList);
 });
 
-
-$("#deleteSoundModal").on("show.bs.modal", function () {
+$("#playlistsModal").on("hidden.bs.modal", function () {
     soundList = [];
+    let playlists = $("#playlistsModal input[data-action]");
+    $.map(playlists, function(playlist) {
+        playlist.checked = false;
+    });
 });
 
-$(".confirmDeletion").on("click", function () {
-    removeSoundsFromPlaylist(soundList, playlistUrl);
+$("#playlistsModal .save").on("click", function () {
+    console.log(soundList);
+    let playlists = $("#playlistsModal input[data-action]");
+    $.map(playlists, function(playlist) {
+        if(playlist.checked){
+            addSoundsToPlaylist(soundList, playlist.getAttribute("data-action"));
+        }
+    });
 });
 
-var deleteModal = new bootstrap.Modal(document.getElementById('deleteSoundModal'), {
+var playlistsModal = new bootstrap.Modal(document.getElementById('playlistsModal'), {
     keyboard: false
 })
 
-function removeSoundsFromPlaylist(soundList, playlistUrl) {
+function addSoundsToPlaylist(soundList, playlistUrl) {
     $.ajax({
         url: playlistUrl,
         type: "POST",
@@ -42,14 +52,12 @@ function removeSoundsFromPlaylist(soundList, playlistUrl) {
                 toastError.show();
                 return;
             }
-            deleteModal.hide();
+            playlistsModal.hide();
 
             let toastSuccessElement = document.querySelector('.toast-success');
             toastSuccessElement.children[0].children[0].innerText = data.success;
             let toastSuccess = new bootstrap.Toast(toastSuccessElement);
             toastSuccess.show();
-
-            soundCard.remove();
         }
     });
 }

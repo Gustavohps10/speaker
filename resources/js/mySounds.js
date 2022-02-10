@@ -53,7 +53,7 @@ function addSoundsToPlaylist(soundList, playlistUrl) {
         success(data){
             if(data.error){
                 let toastErrorElement = document.querySelector('.toast-error');
-                toastErrorElement.children[0].children[0].innerText = data.error;
+                toastErrorElement.children[0].children[0].innerText = data.error.msg;
                 let toastError = new bootstrap.Toast(toastErrorElement);
                 toastError.show();
                 return;

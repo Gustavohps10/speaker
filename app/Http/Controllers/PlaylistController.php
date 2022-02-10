@@ -99,9 +99,10 @@ class PlaylistController extends Controller
         }
 
         $data = [];
+        $data["error"]["repeateds"] = [];
         
-        if(!count($request->soundList)){
-            $data["error"] = "Nenhuma musica foi selecionada";
+        if(empty($request->soundList) || !is_array($request->soundList) || !count($request->soundList)){
+            $data["error"]["msg"] = "Nenhuma musica foi selecionada";
             return json_encode($data);
         }
 
@@ -109,13 +110,20 @@ class PlaylistController extends Controller
 
         foreach($soundIdList as $soundId){
             if(!$sound = Sound::find($soundId)){
-                $data["error"] = "Algo deu errado, tente novamente";
-                return json_encode($data);
+                $data["error"]["msg"] = "Algo deu errado, tente novamente";
+            }elseif($playlist->sounds()->where('sound_id', $sound->id)->exists()){
+                $data["error"]["msg"] = "Você está tentando adicionar musicas repetidas na playlist";
+                array_push($data["error"]["repeateds"], json_decode($sound));
+            }else{
+                $playlist->sounds()->attach($sound->id);
             }
-            
-            $playlist->sounds()->save($sound);
+        }
+
+        if(!empty($data["error"]["repeateds"]) || !empty($data["error"]["msg"])){
+            return json_encode($data);
         }
         
+        unset($data["error"]);
         $data["success"] = "Adicionado com sucesso";
         return json_encode($data);
     }
@@ -127,22 +135,28 @@ class PlaylistController extends Controller
 
         $data = [];
 
-        if(!is_array($request->soundList) || !count($request->soundList)){
-            $data["error"] = "Nenhuma musica foi selecionada";
+        if(empty($request->soundList) || !is_array($request->soundList) || !count($request->soundList)){
+            $data["error"]["msg"] = "Nenhuma música foi selecionada";
             return json_encode($data);
         }
 
         $soundIdList = array_unique($request->soundList);
 
         foreach($soundIdList as $soundId){
-            if(!$sound = Sound::find(intval($soundId))){
-                $data["error"] = "Algo deu errado, tente novamente";
-                return json_encode($data);
+            if(!$sound = Sound::find($soundId)){
+                $data["error"]["msg"] = "Algo deu errado, tente novamente";
+            }elseif(!$playlist->sounds()->where('sound_id', $sound->id)->exists()){
+                $data["error"]["msg"] = "Esta música não está associada á esta playlist";
+            }else{
+                $playlist->sounds()->detach($sound->id);
             }
-            
-            $playlist->sounds()->detach($sound->id);
+        }
+
+        if(!empty($data["error"]["msg"])){
+            return json_encode($data);
         }
         
+        unset($data["error"]);
         $data["success"] = "Removido com sucesso";
         return json_encode($data);
     }
