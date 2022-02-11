@@ -2,6 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/js/mySounds.js": "/js/mySounds.js",
     "/js/editPlaylist.js": "/js/editPlaylist.js",
+    "/js/home.js": "/js/home.js",
     "/js/search.js": "/js/search.js",
     "/css/app.css": "/css/app.css"
 }

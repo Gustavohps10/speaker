@@ -27,7 +27,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $newSounds = Sound::orderBy('id', "desc")->limit(20)->get();
+        
+        return view('home', [
+            "newSounds" => $newSounds
+        ]);
     }
 
     public function search(Request $request){

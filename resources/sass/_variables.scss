@@ -31,7 +31,12 @@ $form-check-input-checked-bg-color:#6f42c1;
 $input-focus-border-color:  #9e77e3;            
 $input-focus-box-shadow: 0 0 0 0.25rem rgb(111, 66, 193, 30%);
 
-$dropdown-link-active-color: #212529;
-$dropdown-link-active-bg: #b5b5b5;
+$dropdown-bg: #282828;
+$dropdown-link-color:#fff;
+$dropdown-link-hover-color:#fff;
+$dropdown-link-hover-bg: rgba(255,255,255,.1);
+$dropdown-border-color: rgb(48, 47, 47);
+$dropdown-link-active-bg: rgba(255, 255, 255, 0.205);
+$dropdown-box-shadow: 1px 2px 3px 1px #0000004d;
 
 $form-range-thumb-bg: #6f42c1;

@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ asset('images/icon.ico') }}" type="image/x-icon">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -13,15 +14,15 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-dark  bg-dark">
+    <nav class="navbar navbar-dark" style="background: #070707">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a href="#"><img src={{asset('images/white-logo-small.png')}} alt="" style="height: 50px"></a>
+            <a href={{ route("home")}}><img src={{asset('images/white-logo-small.png')}} alt="" style="height: 50px"></a>
             <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <a href="#"><img style="height: 45px" src={{asset('images/white-logo-small.png')}} alt=""></a>
+                    <a href={{ route("home")}}><img style="height: 45px" src={{asset('images/white-logo-small.png')}} alt=""></a>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -73,7 +74,7 @@
                             <h1 class="fs-6"><i class="bi bi-house"></i> Home</h1 class="fs-6">
 
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center" href="{{ route('sound.index') }}"><i class="bi bi-music-note-list fs-4 me-2"></i> Biblioteca</a>
+                                <a class="nav-link d-flex align-items-center" href="{{ route('sound.index') }}"><img src={{asset('images/icon-lib.svg')}} alt=""> Biblioteca</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center " href="{{ route('sound.create') }}"><i class="bi bi-cloud-arrow-up fs-4 me-2"></i> Upload</a>
