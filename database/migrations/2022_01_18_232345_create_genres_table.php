@@ -21,12 +21,14 @@ class CreateGenresTable extends Migration
         });
 
         $data =  array(
-            [
-                'name' => 'HIPHOP',
-            ],
-            [
-                'name' => 'POP',
-            ],
+            ['name' => 'BLUES'],
+            ['name' => 'COUNTRY'],
+            ['name' => 'ELETRONIC'],
+            ['name' => 'HIP HOP'],
+            ['name' => 'JAZZ'],
+            ['name' => 'POP'],
+            ['name' => 'ROCK']
+
         );
         foreach ($data as $datum){
             $genre = new Genre();
