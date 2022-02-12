@@ -11,7 +11,7 @@
 
 <div align="center">
     
-![speake](https://user-images.githubusercontent.com/61752235/151577671-663b2e7b-c4b7-4033-af49-0c15d279efca.gif)
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/61752235/153693098-5d065a9b-5392-441f-9fbb-d3bf4e869d9c.gif)
     
 </div>
 
@@ -28,8 +28,7 @@ There you can search, upload and listen to your favorite tracks.
 - [x] Delete audios
 - [x] Edit audios
 - [x] Search audios
-- [ ] Create playlists
-- [ ] Make comments
+- [x] Create playlists
 
 # :pushpin: Dependencies
 - PHP
