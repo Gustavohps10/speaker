@@ -4,14 +4,16 @@
     Sound Platform: <i>Speaker</i>
 </h1>
 
-![GitHub top language](https://img.shields.io/github/languages/top/gustavohps10/speaker)
-![GitHub language count](https://img.shields.io/github/languages/count/gustavohps10/speaker?color=%236f42c1)
-
-> Status: **Developing** ⚠️
+<div align="center">
+    <img src="https://img.shields.io/github/languages/top/Gustavohps10/speaker?colorB=%236f42c1&colorA=1e1e1e"/>
+    <img src="https://img.shields.io/github/commit-activity/w/Gustavohps10/speaker?colorB=%236f42c1&colorA=1e1e1e"/>
+    <img src="https://img.shields.io/github/created-at/gustavohps10/speaker?colorB=%236f42c1&colorA=1e1e1e"/>
+    <img src="https://img.shields.io/github/license/gustavohps10/speaker?colorB=%236f42c1&colorA=1e1e1e"/>
+</div>
 
 <div align="center">
-    
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/61752235/153693098-5d065a9b-5392-441f-9fbb-d3bf4e869d9c.gif)
+
+![ezgif com-gif-maker](public\images\speaker-sample.png)
     
 </div>
 
@@ -69,5 +71,20 @@ Tools used in the project:
 - JavaScript
 - Bootstrap 5
 
-# :adult: Author
-Made with 💜 Gustavo Henrique
+## :adult: Contributors
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.gustavohenrique.site/"><img src="https://avatars.githubusercontent.com/u/61752235?v=4?s=100" width="100px;" alt="Gustavo Henrique"/><br /><sub><b>Gustavo Henrique</b></sub></a><br /><a href="#code-Gustavohps10" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
