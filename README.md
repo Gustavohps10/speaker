@@ -13,7 +13,7 @@
 
 <div align="center">
 
-![ezgif com-gif-maker](public\images\speaker-sample.png)
+![ezgif com-gif-maker](public/images/speaker-sample.png)
     
 </div>
 
