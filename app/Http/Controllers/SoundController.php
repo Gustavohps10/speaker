@@ -192,7 +192,7 @@ class SoundController extends Controller
     {
         $search = !empty($_GET["search"]) ? $_GET["search"] : "";
         $response = Http::get("https://www.googleapis.com/youtube/v3/search", [
-            "key"=> "AIzaSyDhx-PJf_KEA5eT2_lbi1uiXXzw_YiTyMs",
+            "key"=> "ramdom_123456",
             "maxResults" => "1",
             "part" => "snippet",
             "type" => "video",
